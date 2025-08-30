@@ -1,10 +1,10 @@
 # dotfiles
 
-This is my personal dotfiles repo. Feel free to get inspired.
+This is my personal dotfiles repo.
 
 ## prerequisites
 
-python, git
+python3, git. dotfiles are managed with [dotbot](https://github.com/anishathalye/dotbot), which doesn't require installation.
 
 ## installation
 
