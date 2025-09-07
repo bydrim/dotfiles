@@ -34,6 +34,9 @@ return {
           -- ensure 4 space indentation
           prepend_args = { '--aosp' },
         },
+        xmlformatter = {
+          prepend_args = { '--indent', '4' },
+        },
       },
       formatters_by_ft = {
         lua = { 'stylua' },
@@ -43,6 +46,7 @@ return {
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
         java = { 'google-java-format', lsp_format = 'fallback' },
+        xml = { 'xmlformatter' },
       },
     },
   },
