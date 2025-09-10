@@ -165,6 +165,8 @@ vim.keymap.set('n', '<leader>bo', function()
   end
 end, { desc = '[B]uffers close [O]thers but current one' })
 
+vim.keymap.set('n', '<leader>tw', ':set wrap!<CR>', { desc = '[T]oggle line [W]rap' })
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
