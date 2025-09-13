@@ -51,8 +51,6 @@ local servers = {
         vim.keymap.set(mode, keys, func, { buffer = some_table.bufnr, desc = 'Java: ' .. desc })
       end
 
-      local java = require 'java'
-
       -- Build & Run
       map('<leader>jb', ':JavaBuildBuildWorkspace<CR>', 'Runs a full workspace build')
       map('<leader>jr', ':JavaRunnerRunMain<CR>', 'Run the application or selected main class')
