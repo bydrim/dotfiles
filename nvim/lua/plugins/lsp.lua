@@ -187,14 +187,8 @@ return {
         },
       }
 
-      -- Custom nvim-java config goes here
       -- This needs to run before lspconfig and language server(jdtls) setup
-      require('java').setup {
-        jdk = {
-          auto_install = false,
-          -- version = 21.0.7,
-        },
-      }
+      require('config.nvim-java').init()
 
       -- LSP servers and clients are able to communicate to each other what features they support.
       --  By default, Neovim doesn't support everything that is in the LSP specification.
