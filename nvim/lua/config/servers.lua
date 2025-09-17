@@ -1,4 +1,5 @@
 --  THESE ARE nvim-lspconfig NAMES!
+--  See `:help lspconfig-all` for a list of all the pre-configured LSPs
 --
 --  Add any additional override configuration in the following tables. Available keys are:
 --  - cmd (table): Override the default command used to start the server
@@ -7,18 +8,6 @@
 --  - settings (table): Override the default settings passed when initializing the server.
 --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-  --
-  -- Some languages (like typescript) have entire language plugins that can be useful:
-  --    https://github.com/pmizio/typescript-tools.nvim
-  --
-  -- But for many setups, the LSP (`ts_ls`) will work just fine
-  -- ts_ls = {},
-
   lua_ls = {
     automatic_enable = true,
     settings = {
@@ -30,24 +19,11 @@ local servers = {
         -- diagnostics = { disable = { 'missing-fields' } },
       },
     },
+    capabilities = require('blink.cmp').get_lsp_capabilities(),
   },
-  jdtls = {
-    settings = {
-      java = {
-        configuration = {
-          runtimes = {
-            {
-              name = 'openJDK-21.0.7-Temurin',
-              path = 'java',
-              default = true,
-            },
-          },
-        },
-      },
-    },
-  },
+  jdtls = {},
   yamlls = {},
-  biome = {},
+  ts_ls = {},
 }
 
 return servers

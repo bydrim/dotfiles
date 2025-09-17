@@ -37,6 +37,15 @@ return {
         xmlformatter = {
           prepend_args = { '--indent', '4' },
         },
+        astyle = {
+          prepend_args = {
+            '--indent-after-parens',
+            '--squeeze-ws',
+            '--squeeze-lines=1',
+            '--max-code-length=120',
+            '--add-braces',
+          },
+        },
       },
       formatters_by_ft = {
         lua = { 'stylua' },
@@ -45,7 +54,8 @@ return {
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
-        java = { 'google-java-format', lsp_format = 'fallback' },
+        -- java = { 'google-java-format', lsp_format = 'fallback' },
+        java = { 'astyle', lsp_format = 'fallback' },
         xml = { 'xmlformatter' },
       },
     },

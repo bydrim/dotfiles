@@ -22,10 +22,13 @@ return {
       {
         'mason-org/mason.nvim',
         opts = {
-          -- custom registry location to test contributions
-          -- registries = {
-          --   'file:~/Workspaces/contributions/neovim/mason-registry',
-          -- },
+          registries = {
+            -- custom registry location to test contributions
+            -- 'file:~/Workspaces/contributions/neovim/mason-registry',
+            -- mason registry to get latest jdtls
+            'github:nvim-java/mason-registry',
+            'github:mason-org/mason-registry',
+          },
         },
       },
       'mason-org/mason-lspconfig.nvim',
@@ -187,53 +190,28 @@ return {
         },
       }
 
+      -- LSP configs
+      local server_configs = require 'config.servers'
+
       -- This needs to run before lspconfig and language server(jdtls) setup
       require('config.nvim-java').init()
+      require('lspconfig').jdtls.setup(server_configs.jdtls)
 
-      -- LSP servers and clients are able to communicate to each other what features they support.
-      --  By default, Neovim doesn't support everything that is in the LSP specification.
-      --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
-      --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
-
-      -- Enable the following language servers
-      --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-      local servers = require 'config.servers'
-
-      -- The following loop will configure each server with the capabilities we defined above.
-      -- This will ensure that all servers have the same base configuration, but also
-      -- allow for server-specific overrides.
-      for server_name, server_config in pairs(servers) do
-        server_config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server_config.capabilities or {})
-        require('lspconfig')[server_name].setup(server_config)
+      -- The following loop will configure each server
+      for server_name, server_config in pairs(server_configs) do
+        -- require('lspconfig')[server_name].setup(server_config)
+        if server_name ~= 'jdtls' then
+          vim.lsp.config[server_name] = server_config
+          vim.lsp.enable(server_name)
+        end
       end
 
       -- Ensure the servers and tools above are installed
-      --
-      -- To check the current status of installed tools and/or manually install
-      -- other tools, you can run
-      --    :Mason
-      --
-      -- You can press `g?` for help in this menu.
-      --
-      -- `mason` had to be setup earlier: to configure its options see the
-      -- `dependencies` table for `nvim-lspconfig` above.
-      --
-      -- You can add other tools here that you want Mason to install
-      -- for you, so that they are available from within Neovim.
-      local ensure_installed = vim.tbl_keys(servers or {})
+      local ensure_installed = vim.tbl_keys(server_configs or {})
       vim.list_extend(ensure_installed, {
         -- Used to format Lua code
         'stylua',
-        {
-          -- mason installs the jar version which is very slow.
-          -- Let mason install the slow jar as a last resolution
-          -- if there is no other (fast binary)executable on the path.
-          'google-java-format ',
-          condition = function()
-            return vim.fn.executable 'google-java-format' == 0
-          end,
-        },
+        'google-java-format',
         'xmlformatter',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
