@@ -190,14 +190,16 @@ return {
         },
       }
 
+      -- This needs to run before lspconfig and language server(jdtls) setup
+      require('config.nvim-java').init()
+
       -- LSP configs
       local server_configs = require 'config.servers'
 
-      -- This needs to run before lspconfig and language server(jdtls) setup
-      require('config.nvim-java').init()
+      -- nvim-java breaks when jdtls is integrated with new api so using old api here.
       require('lspconfig').jdtls.setup(server_configs.jdtls)
 
-      -- The following loop will configure each server
+      -- The following loop will configure each lsp with the new api.
       for server_name, server_config in pairs(server_configs) do
         -- require('lspconfig')[server_name].setup(server_config)
         if server_name ~= 'jdtls' then

@@ -19,11 +19,17 @@ local servers = {
         -- diagnostics = { disable = { 'missing-fields' } },
       },
     },
-    capabilities = require('blink.cmp').get_lsp_capabilities(),
   },
   jdtls = {},
   yamlls = {},
   ts_ls = {},
 }
+
+-- blink provides some lsp client capabilities that neovim doesn't support yet.
+-- for example, fuzzy completion.
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+for name, _ in pairs(servers) do
+  servers[name].capabilities = vim.tbl_deep_extend('force', {}, capabilities, servers[name].capabilities or {})
+end
 
 return servers
