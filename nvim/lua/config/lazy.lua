@@ -152,11 +152,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Delete all other **loaded** buffers but the current one.
 vim.keymap.set('n', '<leader>bo', function()
-  -- implement deleting all other buffers
   local currentBuf = vim.api.nvim_get_current_buf()
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-    if buf ~= currentBuf then
+    if buf ~= currentBuf and vim.api.nvim_buf_is_loaded(buf) then
       vim.api.nvim_buf_call(buf, function()
         vim.bo.buflisted = false
       end)
