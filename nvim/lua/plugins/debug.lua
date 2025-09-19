@@ -24,6 +24,13 @@ return {
       desc = 'Debug: Start/Continue',
     },
     {
+      '<F4>',
+      function()
+        require('dap').stop()
+      end,
+      desc = 'Debug: Stop',
+    },
+    {
       '<F10>',
       function()
         require('dap').step_into()
