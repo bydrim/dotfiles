@@ -20,6 +20,7 @@ return {
         'query',
         'vim',
         'vimdoc',
+        'yaml',
       },
       -- Autoinstall languages that are not installed
       auto_install = false,
