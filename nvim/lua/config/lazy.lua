@@ -154,15 +154,25 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Delete all other **loaded** buffers but the current one.
 vim.keymap.set('n', '<leader>bo', function()
-  local currentBuf = vim.api.nvim_get_current_buf()
-  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-    if buf ~= currentBuf and vim.api.nvim_buf_is_loaded(buf) then
-      vim.api.nvim_buf_call(buf, function()
-        vim.bo.buflisted = false
-      end)
-      vim.api.nvim_buf_delete(buf, { unload = true })
+  local current_buf = vim.api.nvim_get_current_buf()
+  local buf_list = vim.api.nvim_list_bufs()
+
+  local cnt = 0
+  for _, buf in ipairs(buf_list) do
+    if buf ~= current_buf and vim.api.nvim_buf_is_loaded(buf) then
+      vim.cmd('bd ' .. buf)
+      cnt = cnt + 1
     end
   end
+
+  local buf_str
+  if cnt == 1 then
+    buf_str = ' buf '
+  else
+    buf_str = ' bufs '
+  end
+
+  print('' .. cnt .. buf_str .. 'deleted.')
 end, { desc = '[B]uffers close [O]thers but current one' })
 
 vim.keymap.set('n', '<leader>tw', ':set wrap!<CR>', { desc = '[T]oggle line [W]rap' })
