@@ -210,12 +210,8 @@ return {
 
       -- Ensure the servers and tools above are installed
       local ensure_installed = vim.tbl_keys(server_configs or {})
-      vim.list_extend(ensure_installed, {
-        -- Used to format Lua code
-        'stylua',
-        'google-java-format',
-        'xmlformatter',
-      })
+      local mason_installs = require 'config.mason_installs'
+      vim.list_extend(ensure_installed, mason_installs or {})
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
     end,
   },

@@ -30,10 +30,10 @@ return {
         end
       end,
       formatters = {
-        ['google-java-format'] = {
-          -- ensure 4 space indentation
-          prepend_args = { '--aosp' },
-        },
+        -- ['google-java-format'] = {
+        --   -- ensure 4 space indentation
+        --   prepend_args = { '--aosp' },
+        -- },
         xmlformatter = {
           prepend_args = { '--indent', '4' },
         },

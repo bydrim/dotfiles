@@ -51,6 +51,14 @@ return {
       end,
       desc = 'Debug: Step Out',
     },
+    -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
+    {
+      '<F9>',
+      function()
+        require('dapui').toggle()
+      end,
+      desc = 'Debug: See last session result.',
+    },
     {
       '<leader>dt',
       function()
@@ -65,13 +73,12 @@ return {
       end,
       desc = '[D]ebug: Set [B]reakpoint',
     },
-    -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
-      '<F9>',
+      '<leader>dc',
       function()
-        require('dapui').toggle()
+        require('dap').clear_breakpoints()
       end,
-      desc = 'Debug: See last session result.',
+      desc = '[D]ebug: [C]lear Breakpoints',
     },
   },
   config = function()
