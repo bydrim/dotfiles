@@ -14,13 +14,15 @@ config.font_size = 13
 
 -- disable ligatures
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
-config.window_background_opacity = 0.97
-config.enable_scroll_bar = true
 
+config.window_background_opacity = 0.90
+config.enable_scroll_bar = true
 config.initial_cols = 130 -- max 138 currently
 config.initial_rows = 16
-
 config.hide_tab_bar_if_only_one_tab = true
+
+-- rasterization (Nvidia is causing problem (OpenGL))
+config.front_end = "WebGpu"
 
 -- disable window title
 config.window_decorations = "RESIZE"
