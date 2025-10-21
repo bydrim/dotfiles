@@ -22,6 +22,7 @@ return {
         'vimdoc',
         'yaml',
         'latex',
+        'kdl',
       },
       -- Autoinstall languages that are not installed
       auto_install = false,
