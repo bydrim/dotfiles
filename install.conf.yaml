@@ -3,7 +3,7 @@
       relink: true
       create: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
     ~/.tmux.conf:
@@ -12,10 +12,11 @@
     ~/.gitconfig:
     ~/.config/nvim: nvim
     ~/.config/wezterm: wezterm
+    ~/.config/niri: niri
 
 # - create:
 #     - ~/downloads
 #     - ~/.vim/undo-history
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
+    - [git submodule update --init --recursive, Installing submodules]
