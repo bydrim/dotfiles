@@ -1,6 +1,6 @@
 {
-  "currentThemeName": "dynamic",
-  "customThemeFile": "",
+  "currentThemeName": "custom",
+  "customThemeFile": "/home/bydrim/.config/DankMaterialShell/themes/everforest-dark-medium.json",
   "matugenScheme": "scheme-tonal-spot",
   "runUserMatugenTemplates": true,
   "dankBarTransparency": 1,
