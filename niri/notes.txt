@@ -1,40 +1,23 @@
 sudo dnf copr enable yalter/niri
-sudo dnf install niri mako waybar swaybg swayidle polkit-kde
+# Stable release
+sudo dnf copr enable avengemedia/dms
+sudo dnf install niri dms
 
-# mako and waybar provides default systemd config.
-# just open to edit and save without a change so the config file
-# will be copied from system config to local config
-# (this happens only when the $EDITOR is set to 'nvim').
-# When editing like this, it is supposed to not to open an empty file.
-# if that's the case, you should copy the service files manually.
-systemctl edit --user --full niri
-systemctl edit --user --full mako
-systemctl edit --user --full waybar
-# copying manually as alternative
-mkdir -p ~/.config/systemd/user
-cp /usr/lib/systemd/user/niri.service ~/.config/systemd/user
-cp /usr/lib/systemd/user/mako.service ~/.config/systemd/user
-cp /usr/lib/systemd/user/waybar.service ~/.config/systemd/user
-
-# this is polkit-kde
-# this time we need to add the line below under the Unit section
-# After=graphical-session.target
-# cp /usr/lib/systemd/user/plasma-polkit-agent.service ~/.config/systemd/user
-systemctl edit --user --full plasma-polkit-agent
-
-# copy these sample systemd configs since they don't provide one
-# don't forget to adjust background path in swaybg.service
-cp swaybg.service ~/.config/systemd/user
-cp swayidle.service ~/.config/systemd/user
+# instead of triggering processes from config.kdl, we are adding these
+# as local systemd services as adviced in niri docs.
+cp dms.service ~/.config/systemd/user
+cp wl-paste.service ~/.config/systemd/user
+# for plasma, don't forget to check the exec location.
+# you can search it in /usr folder with:
+# fd polkit-kde-authentication-agent-1 /usr
+cp plasma-polkit-agent.service ~/.config/systemd/user
 
 # let systemd pick up changes
 systemctl daemon-reload --user
 
-# add other services as dependency for niri so they ll start with niri.
-# (we don't add waybar since niri automatically starts it)
-systemctl add-wants --user niri.service mako.service
-systemctl add-wants --user niri.service swaybg.service
-systemctl add-wants --user niri.service swayidle.service
+# add other services as systemd dependency for niri so they ll start with niri.
+systemctl add-wants --user niri.service dms.service
+systemctl add-wants --user niri.service wl-paste.service
 systemctl add-wants --user niri.service plasma-polkit-agent.service
 
 # NVidia problem

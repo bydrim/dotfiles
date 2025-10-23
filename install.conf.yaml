@@ -13,6 +13,7 @@
     ~/.config/nvim: nvim
     ~/.config/wezterm: wezterm
     ~/.config/niri: niri
+    ~/.config/DankMaterialShell: DankMaterialShell
 
 # - create:
 #     - ~/downloads
