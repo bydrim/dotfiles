@@ -156,7 +156,7 @@
   "dockIconSize": 40,
   "cornerRadius": 12,
   "notificationOverlayEnabled": false,
-  "dankBarAutoHide": true,
+  "dankBarAutoHide": false,
   "dankBarOpenOnOverview": false,
   "dankBarVisible": true,
   "dankBarSpacing": 4,
