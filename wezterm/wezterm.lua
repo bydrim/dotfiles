@@ -25,7 +25,7 @@ config.hide_tab_bar_if_only_one_tab = true
 config.front_end = "WebGpu"
 
 -- disable window title
-config.window_decorations = "RESIZE"
+config.window_decorations = "NONE"
 
 -- and finally, return the configuration to wezterm
 return config
