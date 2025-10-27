@@ -1,6 +1,6 @@
 {
   "currentThemeName": "custom",
-  "customThemeFile": "/home/bydrim/.config/DankMaterialShell/themes/everforest-dark-medium.json",
+  "customThemeFile": "/home/bydrim/.dotfiles/DankMaterialShell/themes/everforest.json",
   "matugenScheme": "scheme-tonal-spot",
   "runUserMatugenTemplates": true,
   "dankBarTransparency": 1,
@@ -183,7 +183,7 @@
   "notificationTimeoutNormal": 5000,
   "notificationTimeoutCritical": 0,
   "notificationPopupPosition": 0,
-  "osdAlwaysShowValue": false,
+  "osdAlwaysShowValue": true,
   "powerActionConfirm": true,
   "customPowerActionLock": "",
   "customPowerActionLogout": "",
