@@ -8,7 +8,7 @@
   "popupTransparency": 1,
   "dockTransparency": 1,
   "use24HourClock": true,
-  "showSeconds": false,
+  "showSeconds": true,
   "useFahrenheit": false,
   "nightModeEnabled": false,
   "weatherLocation": "Zürich",
