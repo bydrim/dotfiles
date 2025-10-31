@@ -640,7 +640,7 @@ binds {
 
     // DANK MATERIAL SHELL BINDS
 
-    Mod+Space hotkey-overlay-title="Application Launcher" {
+    Mod+E hotkey-overlay-title="Application Launcher" {
       spawn "dms" "ipc" "call" "spotlight" "toggle";
     }
 
