@@ -24,8 +24,10 @@ input {
             // If this section is empty, niri will fetch xkb settings
             // from org.freedesktop.locale1. You can control these using
             // localectl set-x11-keymap.
-
             // localectl set-keymap us-altgr-intl
+
+            layout "us(altgr-intl), tr"
+            options "grp:win_space_toggle"
         }
 
         // Enable numlock on startup, omitting this setting disables it.
