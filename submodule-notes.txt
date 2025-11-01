@@ -16,6 +16,9 @@ git submodule add $url $localPathToDownload
 git submodule update --remote
 # this command basically does "git fetch && git merge origin/master" (or main, the default branch which HEAD points at remote)
 
+# to show useful summary about submodules when run "git status"
+git config status.submodulesummary 1
+
 # to track a specific branch in the submodule instead of the main branch,
 # for example stable branch at dotbot module
 git config -f .gitmodules submodule.dotbot.branch stable
