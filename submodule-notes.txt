@@ -1,0 +1,22 @@
+# 'git clone' doesn't download submodules
+# this automatically creates & updates submodules to the registered commit
+git clone $url $localPathToDownload --recursive
+
+# if you cloned without --recursive, init & update submodules (effects all submodules)
+# --recursive here updates submodules' submodules. yes :)
+git submodule update --init --recursive
+# short for "git submodule init && git submodule update --recursive"
+
+# update command checksout submodules to the pointed commit in main repo
+
+# add a submodule to a repo
+git submodule add $url $localPathToDownload
+
+# to fetch latest developments in the submodules
+git submodule update --remote
+# this command basically does "git fetch && git merge origin/master" (or main, the default branch which HEAD points at remote)
+
+# to track a specific branch in the submodule instead of the main branch,
+# for example stable branch at dotbot module
+git config -f .gitmodules submodule.dotbot.branch stable
+git submodule update --remote
