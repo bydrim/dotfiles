@@ -1,0 +1,10 @@
+{
+  "dankBatteryAlerts": {
+    "enabled": true,
+    "criticalThreshold": 5
+  },
+  "dankPomodoroTimer": {
+    "enabled": true,
+    "autoStartBreaks": false
+  }
+}
