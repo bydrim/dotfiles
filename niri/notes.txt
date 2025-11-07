@@ -6,6 +6,7 @@ sudo dnf install niri dms mate-polkit
 # instead of triggering processes from config.kdl, we are creating
 # local systemd services as adviced in niri docs.
 cp wl-paste.service ~/.config/systemd/user
+# verify the location of the executable 'polkit-mate-authentication-agent-1'
 cp mate-polkit-agent.service ~/.config/systemd/user
 
 # let systemd pick up changes
