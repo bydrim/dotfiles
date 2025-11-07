@@ -4,5 +4,5 @@ After=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
-ExecStart=bash -c "wl-paste --watch cliphist store &"
+ExecStart=wl-paste --watch cliphist store
 Restart=on-failure

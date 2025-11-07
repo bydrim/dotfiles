@@ -1,24 +1,20 @@
 sudo dnf copr enable yalter/niri
 # Stable release
 sudo dnf copr enable avengemedia/dms
-sudo dnf install niri dms
+sudo dnf install niri dms mate-polkit
 
-# instead of triggering processes from config.kdl, we are adding these
-# as local systemd services as adviced in niri docs.
-cp dms.service ~/.config/systemd/user
+# instead of triggering processes from config.kdl, we are creating
+# local systemd services as adviced in niri docs.
 cp wl-paste.service ~/.config/systemd/user
-# for plasma, don't forget to check the exec location.
-# you can search it in /usr folder with:
-# fd polkit-kde-authentication-agent-1 /usr
-cp plasma-polkit-agent.service ~/.config/systemd/user
+cp mate-polkit-agent.service ~/.config/systemd/user
 
 # let systemd pick up changes
-systemctl daemon-reload --user
+systemctl --user daemon-reload
 
 # add other services as systemd dependency for niri so they ll start with niri.
-systemctl add-wants --user niri.service dms.service
-systemctl add-wants --user niri.service wl-paste.service
-systemctl add-wants --user niri.service plasma-polkit-agent.service
+systemctl --user add-wants niri.service dms.service
+systemctl --user add-wants niri.service wl-paste.service
+systemctl --user add-wants niri.service mate-polkit-agent.service
 
 # NVidia problem
 sudo mkdir -p /etc/nvidia/nvidia-application-profiles-rc.d
