@@ -2,47 +2,11 @@
 ""   the same commands as the original .vimrc configuration.
 "" You can find a list of commands here: https://jb.gg/h38q75
 "" Find more examples here: https://jb.gg/share-ideavimrc
-"
-"
-""" -- Suggested options --
-"" Show a few lines of context around the cursor. Note that this makes the
-"" text scroll if you mouse-click near the start or end of the window.
-"set scrolloff=5
-"
-"" Do incremental searching.
-"set incsearch
-"
-"" Don't use Ex mode, use Q for formatting.
-"map Q gq
-"
-"" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
-"
-"" Highlight copied text
-"Plug 'machakann/vim-highlightedyank'
-"" Commentary plugin
-"Plug 'tpope/vim-commentary'
-"
-"
-""" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-""" Map \r to the Reformat Code action
-""map \r <Action>(ReformatCode)
-"
-""" Map <leader>d to start debug
-""map <leader>d <Action>(Debug)
-"
-""" Map \b to toggle the breakpoint on the current line
-""map \b <Action>(ToggleLineBreakpoint)
-
-"" #######################
-"" END OF DEFAULT SETTINGS
-"" #######################
-
-"" ##################
-"" MY CUSTOM SETTINGS
-"" ##################
 
 " https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md
 " https://github.com/JetBrains/ideavim/discussions/303#discussioncomment-12591982
+
+
 let mapleader = ' '
 
 " Start searching and highlighting as typing
@@ -77,9 +41,14 @@ noremap <C-l> <C-w><C-l>
 noremap <C-j> <C-w><C-j>
 noremap <C-k> <C-w><C-k>
 
-" Rename
-" TODO: mappings which contain <Action> doesn't function as intended, yanks weird things.
+" Action keymaps
 nmap grn <Action>(Rename)
+nmap grd <Action>(GotoDeclaration) " goto definition
+nmap grD <Action>(GotoTypeDeclaration)
+nmap gri <Action>(GotoImplementation)
+nmap gW <Action>(GotoSymbol) " workspace symbols
+nmap gra <Action>(GotoAction)
+nmap <leader>sf <Action>(GotoFile)
 
 " Highlight copied text
 Plug 'machakann/vim-highlightedyank'
@@ -94,5 +63,3 @@ Plug 'tpope/vim-commentary'
 " nnoremap <C-n> :NERDTree<CR>
 " nnoremap <C-f> :NERDTreeFind<CR>
 
-" fzf
-Plug 'junegunn/fzf.vim'
