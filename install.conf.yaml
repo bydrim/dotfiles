@@ -16,6 +16,7 @@
     ~/.config/DankMaterialShell: DankMaterialShell
     ~/.github.gitconfig:
     ~/.codeberg.gitconfig:
+    ~/.config/environment.d: environment.d
 
 # - create:
 #     - ~/downloads
