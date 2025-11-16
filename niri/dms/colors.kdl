@@ -27,3 +27,10 @@ layout {
         color "#ffb2bc80"
     }
 }
+
+/-recent-windows {
+    highlight {
+        active-color   "#76303d"
+        urgent-color   "#ffb4ab"
+    }
+}
