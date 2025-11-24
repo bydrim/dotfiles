@@ -108,6 +108,8 @@ source $ZSH/oh-my-zsh.sh
 # Default editor
 export EDITOR=nvim
 
+alias prime-run="__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia"
+
 # fuzzy finder setting to use ripgrep
 if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files'
