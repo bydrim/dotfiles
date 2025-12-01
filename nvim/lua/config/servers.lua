@@ -23,6 +23,10 @@ local servers = {
   jdtls = {},
   yamlls = {},
   ts_ls = {},
+  html = {},
+  cssls = {},
+  tailwindcss = {},
+  emmet_ls = {},
 }
 
 -- blink provides some lsp client capabilities that neovim doesn't support yet.
