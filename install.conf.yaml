@@ -17,6 +17,7 @@
     ~/.github.gitconfig:
     ~/.codeberg.gitconfig:
     ~/.config/environment.d: environment.d
+    ~/.config/containers/containers.conf: containers/containers.conf
 
 # - create:
 #     - ~/downloads
