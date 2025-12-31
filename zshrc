@@ -3,6 +3,9 @@
 export PATH=$PATH:$HOME/.local/share/flatpak/exports/bin:$HOME/MyApps/idea-IC-251.25410.129/bin
 export PATH=$PATH:/usr/local/go/bin:$HOME/.asdf/shims:/home/linuxbrew/.linuxbrew/bin
 
+export TERM=xterm-256color
+export COLORTERM=truecolor
+
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
