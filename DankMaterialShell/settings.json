@@ -118,12 +118,10 @@
   "appLauncherGridColumns": 4,
   "spotlightCloseNiriOverview": true,
   "niriOverviewOverlayEnabled": true,
-  "weatherLocation": "Zürich",
-  "weatherCoordinates": "47.3744489,8.5410422",
   "useAutoLocation": false,
   "weatherEnabled": true,
   "networkPreference": "auto",
-  "vpnLastConnected": "3169d48d-af17-48af-b572-dc47726a3ac4",
+  "vpnLastConnected": "2730af80-ab6f-4959-81ae-8eab065e1774",
   "iconTheme": "System Default",
   "launcherLogoMode": "apps",
   "launcherLogoCustomPath": "",
@@ -313,5 +311,6 @@
       "popupGapsManual": 4
     }
   ],
-  "configVersion": 2
+  "configVersion": 5,
+  "desktopWidgetInstances": []
 }
