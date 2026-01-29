@@ -22,11 +22,36 @@ local servers = {
   },
   jdtls = {},
   yamlls = {},
-  ts_ls = {},
   html = {},
   cssls = {},
   tailwindcss = {},
   emmet_ls = {},
+  vtsls = {
+    settings = {
+      vtsls = {
+        tsserver = {
+          globalPlugins = {
+            {
+              name = '@vue/typescript-plugin',
+              -- this is the path of the folder. it should not be the executable 'vue-language-server'
+              location = vim.fn.stdpath 'data' .. '/mason/packages/vue-language-server/node_modules/@vue/language-server',
+              languages = { 'vue' },
+              configNamespace = 'typescript',
+            },
+          },
+        },
+      },
+    },
+    filetypes = {
+      'javascript',
+      'javascriptreact',
+      'javascript.jsx',
+      'typescript',
+      'typescriptreact',
+      'typescript.tsx',
+      'vue',
+    },
+  },
   vue_ls = {},
 }
 
