@@ -173,7 +173,7 @@
   "niriOverviewOverlayEnabled": true,
   "useAutoLocation": false,
   "weatherEnabled": true,
-  "networkPreference": "auto",
+  "networkPreference": "wifi",
   "vpnLastConnected": "2730af80-ab6f-4959-81ae-8eab065e1774",
   "iconTheme": "System Default",
   "cursorSettings": {
@@ -493,6 +493,10 @@
   "desktopWidgetGridSettings": {},
   "desktopWidgetInstances": [],
   "desktopWidgetGroups": [],
-  "builtInPluginSettings": {},
+  "builtInPluginSettings": {
+    "dms_settings_search": {
+      "trigger": "?"
+    }
+  },
   "configVersion": 5
 }

@@ -2,7 +2,7 @@
 
 local M = {}
 
-M.set_regular_keymaps = function()
+function M.set_regular_keymaps()
   -- Clear highlights on search when pressing <Esc> in normal mode
   --  See `:help hlsearch`
   vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -63,7 +63,11 @@ M.set_regular_keymaps = function()
   vim.keymap.set('n', '<leader>tw', ':set wrap!<CR>', { desc = '[T]oggle line [W]rap' })
 end
 
-M.set_lsp_keymaps = function()
+---  Keys get set when an LSP attaches to a particular buffer (autocmd for LspAttach).
+---  That is to say, every time a new file is opened that is associated with
+---  an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
+---  function will be executed to configure the current buffer
+function M.set_lsp_keymaps()
   vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
     callback = function(event)
