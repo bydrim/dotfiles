@@ -10,9 +10,7 @@ return {
       'nvim-tree/nvim-web-devicons', -- optional, but recommended
     },
     lazy = false, -- neo-tree will lazily load itself
-    keys = {
-      { '<leader>e', ':Neotree reveal<CR>', mode = 'n', desc = 'NeoTree reveal', silent = true },
-    },
+    keys = require('config.keymaps').neotree_getkeys(),
     ---@module 'neo-tree'
     ---@type neotree.Config
     opts = {

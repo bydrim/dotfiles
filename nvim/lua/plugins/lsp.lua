@@ -45,7 +45,7 @@ return {
       'saghen/blink.cmp',
     },
     config = function()
-      require('config.keymaps').set_lsp_keymaps()
+      require('config.keymaps').lsp_setkeys()
 
       -- Diagnostic Config
       -- See :help vim.diagnostic.Opts
