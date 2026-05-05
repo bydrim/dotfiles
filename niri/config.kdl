@@ -640,21 +640,14 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+Escape { power-off-monitors; }
-
-    // DANK MATERIAL SHELL BINDS
-
-    Mod+E hotkey-overlay-title="Application Launcher" {
-      spawn "dms" "ipc" "call" "spotlight" "toggle";
-    }
-
-    Mod+Alt+L hotkey-overlay-title="Lock Screen" allow-when-locked=true { 
-        spawn "dms" "ipc" "call" "lock" "lock"; 
-    }
-
-    XF86MonBrightnessUp allow-when-locked=true {
-       spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
-    }
-    XF86MonBrightnessDown allow-when-locked=true {
-       spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
-    }
 }
+
+// dms includes
+include "./dms/binds.kdl";
+include "./dms/outputs.kdl";
+include "./dms/cursor.kdl";
+include "./dms/colors.kdl";
+include "./dms/wpblur.kdl";
+include "./dms/layout.kdl";
+include "./dms/windowrules.kdl";
+include "./dms/alttab.kdl";
