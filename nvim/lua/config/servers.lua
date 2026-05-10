@@ -26,6 +26,7 @@ local servers = {
   cssls = {},
   tailwindcss = {},
   emmet_ls = {},
+  -- vscode typescript ls
   vtsls = {
     settings = {
       vtsls = {

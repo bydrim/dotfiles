@@ -3,5 +3,6 @@ return {
   'stylua',
   -- 'google-java-format',
   'xmlformatter',
+  -- TeX/LaTeX engine, powered by XeTeX and TeXLive.
   'tectonic',
 }
