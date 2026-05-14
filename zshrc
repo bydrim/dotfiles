@@ -146,6 +146,9 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+export JAVA21="/home/bydrim/.sdkman/candidates/java/21.0.11-tem"
+export JAVA25="/home/bydrim/.sdkman/candidates/java/25.0.3-tem"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
