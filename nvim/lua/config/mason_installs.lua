@@ -5,4 +5,6 @@ return {
   'xmlformatter',
   -- TeX/LaTeX engine, powered by XeTeX and TeXLive.
   'tectonic',
+  'java-debug-adapter',
+  'java-test',
 }

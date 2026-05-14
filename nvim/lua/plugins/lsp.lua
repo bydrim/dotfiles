@@ -1,5 +1,5 @@
+-- LSP Plugins
 return {
-  -- LSP Plugins
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
@@ -27,16 +27,12 @@ return {
           registries = {
             -- custom registry location to test contributions
             -- 'file:~/Workspaces/contributions/neovim/mason-registry',
-            -- mason registry to get latest jdtls
-            'github:nvim-java/mason-registry',
             'github:mason-org/mason-registry',
           },
         },
       },
       'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-
-      'nvim-java/nvim-java',
 
       -- Useful status updates for LSP.
       { 'j-hui/fidget.nvim', opts = {} },
@@ -76,17 +72,16 @@ return {
         },
       }
 
-      -- This needs to run before lspconfig and language server(jdtls) setup
-      require('config.nvim-java').init()
-
       -- LSP configs
       local server_configs = require 'config.servers'
 
       -- The following loop will configure each lsp with the new api.
       for server_name, server_config in pairs(server_configs) do
-        -- require('lspconfig')[server_name].setup(server_config)
-        vim.lsp.config[server_name] = server_config
-        vim.lsp.enable(server_name)
+        -- jdtls is dealt in after/ftplugin/java.lua
+        if server_name ~= 'jdtls' then
+          vim.lsp.config[server_name] = server_config
+          vim.lsp.enable(server_name)
+        end
       end
 
       -- Ensure the servers and tools above are installed
@@ -95,5 +90,11 @@ return {
       vim.list_extend(ensure_installed, mason_installs or {})
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
     end,
+  },
+  {
+    'mfussenegger/nvim-jdtls',
+    dependencies = {
+      'mfussenegger/nvim-dap',
+    },
   },
 }

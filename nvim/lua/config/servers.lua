@@ -20,6 +20,7 @@ local servers = {
       },
     },
   },
+  -- config for jdtls should be dealt in after/ftplugin/java.lua
   jdtls = {},
   yamlls = {},
   html = {},
