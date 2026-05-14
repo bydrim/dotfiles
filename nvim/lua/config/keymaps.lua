@@ -221,11 +221,11 @@ function M.dap_getkeys()
       desc = '[D]ebug: [T]oggle Breakpoint',
     },
     {
-      '<leader>db',
+      '<leader>ds',
       function()
         require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
       end,
-      desc = '[D]ebug: Set [B]reakpoint',
+      desc = '[D]ebug: [S]et Breakpoint',
     },
     {
       '<leader>dc',
