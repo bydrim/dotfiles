@@ -3,3 +3,9 @@
 
 [includeIf "hasconfig:remote.*.url:git@codeberg.**/**"]
     path = ~/.codeberg.gitconfig
+
+[init]
+    defaultBranch = main
+
+[core]
+    editor = nvim
