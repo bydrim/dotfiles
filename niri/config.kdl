@@ -130,6 +130,9 @@ layout {
     //   together with the previously focused column.
     center-focused-column "never"
 
+    // If set, niri will always center a single column on a workspace, regardless of the center-focused-column option.
+    always-center-single-column
+
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
         // Proportion sets the width as a fraction of the output width, taking gaps into account.
