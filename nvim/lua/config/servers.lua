@@ -55,6 +55,8 @@ local servers = {
     },
   },
   vue_ls = {},
+  astro = {},
+  -- python lsp written in Rust
   zuban = {},
 }
 
