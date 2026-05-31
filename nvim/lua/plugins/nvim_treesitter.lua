@@ -1,6 +1,8 @@
 return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    -- master branch is still working but not compatible with nvim 0.12
+    branch = 'master',
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
@@ -8,11 +10,15 @@ return {
       ensure_installed = {
         'java',
         'javadoc',
+        'html',
+        'css',
         'javascript',
+        'typescript',
+        'astro',
+        'vue',
         'bash',
         'c',
         'diff',
-        'html',
         'lua',
         'luadoc',
         'markdown',
@@ -21,11 +27,12 @@ return {
         'vim',
         'vimdoc',
         'yaml',
-        'latex',
+        'csv',
         'kdl',
+        'latex',
       },
       -- Autoinstall languages that are not installed
-      auto_install = false,
+      auto_install = true,
       highlight = {
         enable = true,
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
