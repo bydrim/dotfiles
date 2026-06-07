@@ -8,6 +8,7 @@
 
 
 let mapleader = ' '
+let maplocalleader = ' '
 
 " Start searching and highlighting as typing
 set incsearch
@@ -27,13 +28,35 @@ set relativenumber
 set clipboard+=unnamed
 " minimum number of lines above and below the cursor
 set scrolloff=10
+" Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+set ignorecase
+set smartcase
+" Decrease mapped sequence wait time
+set timeoutlen=300
+" Show which line your cursor is on
+set cursorline
 
 " Turn off search highlight till search again
 nnoremap <Esc> :nohlsearch<CR>
 
+" config edit or source
+nmap <leader>ce :e ~/.ideavimrc<CR>
+nmap <leader>cs :source ~/.ideavimrc<CR>
+
 " previous/next buffer
 nnoremap [b :bp<CR>
 nnoremap ]b :bn<CR>
+
+" GoTo tab
+nmap <leader>1 <Action>(GoToTab1)
+nmap <leader>2 <Action>(GoToTab2)
+nmap <leader>3 <Action>(GoToTab3)
+nmap <leader>4 <Action>(GoToTab4)
+nmap <leader>5 <Action>(GoToTab5)
+nmap <leader>6 <Action>(GoToTab6)
+nmap <leader>7 <Action>(GoToTab7)
+nmap <leader>8 <Action>(GoToTab8)
+nmap <leader>9 <Action>(GoToTab9)
 
 " Move easier between windows
 noremap <C-h> <C-w><C-h>
@@ -41,14 +64,27 @@ noremap <C-l> <C-w><C-l>
 noremap <C-j> <C-w><C-j>
 noremap <C-k> <C-w><C-k>
 
-" Action keymaps
+" search
+nmap <leader>sf <Action>(GotoFile)
+nmap <leader>sg <Action>(FindInPath)
+
+" format file
+nmap <leader>f <Action>(ReformatCode)
+
+" LSP keymaps
 nmap grn <Action>(Rename)
-nmap grd <Action>(GotoDeclaration) " goto definition
+" goto definition
+nmap grd <Action>(GotoDeclaration)
 nmap grD <Action>(GotoTypeDeclaration)
 nmap gri <Action>(GotoImplementation)
-nmap gW <Action>(GotoSymbol) " workspace symbols
+" workspace symbols
+nmap gW <Action>(GotoSymbol)
 nmap gra <Action>(GotoAction)
-nmap <leader>sf <Action>(GotoFile)
+
+" dap
+nmap <leader>dt <Action>(ToggleLineBreakpoint)
+" [S]et breakpoint (consistency with nvim). sets condition but doesn't create a breakpoint
+nmap <leader>ds <Action>(EditBreakpoint)
 
 " Highlight copied text
 Plug 'machakann/vim-highlightedyank'
@@ -57,9 +93,9 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-commentary'
 
 " File explorer
-" Plug 'preservim/nerdtree'
-" nnoremap <Leader>e :NERDTreeToggle<CR>
+Plug 'preservim/nerdtree'
+" '<leader>e' opens fileexplorer, 'q' closes it and escapes focuses back to editor
+nnoremap <leader>e :NERDTreeToggle<CR>
 " nnoremap <leader>n :NERDTreeFocus<CR>
-" nnoremap <C-n> :NERDTree<CR>
-" nnoremap <C-f> :NERDTreeFind<CR>
-
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
