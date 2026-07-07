@@ -25,7 +25,7 @@ set smartcase
 " Relative line numbers by default
 set relativenumber
 " yanking to-from clipboard
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 " minimum number of lines above and below the cursor
 set scrolloff=10
 " Case-insensitive searching UNLESS \C or one or more capital letters in the search term
@@ -77,6 +77,7 @@ nmap grn <Action>(Rename)
 nmap grd <Action>(GotoDeclaration)
 nmap grD <Action>(GotoTypeDeclaration)
 nmap gri <Action>(GotoImplementation)
+nmap grr <Action>(FindUsages)
 " workspace symbols
 nmap gW <Action>(GotoSymbol)
 nmap gra <Action>(GotoAction)
