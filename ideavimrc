@@ -44,10 +44,12 @@ nmap <leader>ce :e ~/.ideavimrc<CR>
 nmap <leader>cs :source ~/.ideavimrc<CR>
 
 " previous/next buffer
-nnoremap [b :bp<CR>
-nnoremap ]b :bn<CR>
+" nnoremap [b :bp<CR>
+" nnoremap ]b :bn<CR>
+nmap [b <Action>(PreviousTab)
+nmap ]b <Action>(NextTab)
 
-" GoTo tab
+" GoTo tab/buffer
 nmap <leader>1 <Action>(GoToTab1)
 nmap <leader>2 <Action>(GoToTab2)
 nmap <leader>3 <Action>(GoToTab3)
