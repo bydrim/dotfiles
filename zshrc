@@ -1,7 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export PATH=$PATH:$HOME/.local/share/flatpak/exports/bin:$HOME/MyApps/idea-IC-251.25410.129/bin
-export PATH=$PATH:/usr/local/go/bin:$HOME/.asdf/shims:/home/linuxbrew/.linuxbrew/bin
+export PATH=$PATH:$HOME/.local/share/flatpak/exports/bin
+export PATH=$PATH:/usr/local/go/bin:/home/linuxbrew/.linuxbrew/bin
 
 export TERM=xterm-256color
 export COLORTERM=truecolor
