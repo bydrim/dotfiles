@@ -109,7 +109,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Default editor
-export EDITOR=nvim
+# `&> file` is shorthand for `> file 2>&1` in bash, zsh etc. (not in sh!)
+if command -v nvim &> /dev/null; then
+    export EDITOR=$(which nvim)
+elif command -v vim &> /dev/null; then
+    export EDITOR=$(which vim)
+elif command -v vi &> /dev/null; then
+    export EDITOR=$(which vi)
+fi
 
 alias prime-run="__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia"
 
