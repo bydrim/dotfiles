@@ -1,0 +1,20 @@
+{
+  "lockfileVersion": 1,
+  "plugins": {
+    "dankActions": {
+      "repo": "https://github.com/duxlabs-dev/dux-plugins",
+      "path": "DankActions",
+      "commit": "69fcc477de31616807bfc6ee03492319cc7e2484"
+    },
+    "dankHooks": {
+      "repo": "https://github.com/duxlabs-dev/dux-plugins",
+      "path": "DankHooks",
+      "commit": "69fcc477de31616807bfc6ee03492319cc7e2484"
+    },
+    "dankPomodoroTimer": {
+      "repo": "https://github.com/duxlabs-dev/dux-plugins",
+      "path": "DankPomodoroTimer",
+      "commit": "69fcc477de31616807bfc6ee03492319cc7e2484"
+    }
+  }
+}

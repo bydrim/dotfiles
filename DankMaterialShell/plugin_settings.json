@@ -6,5 +6,8 @@
   "dankPomodoroTimer": {
     "enabled": true,
     "autoStartBreaks": false
+  },
+  "dankActions": {
+    "enabled": false
   }
 }
